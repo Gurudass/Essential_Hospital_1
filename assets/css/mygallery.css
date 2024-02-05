@@ -1,0 +1,54 @@
+/* Style for the gallery container */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 16px;
+}
+
+/* Style for gallery items (images) */
+.gallery-item {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    /* Maintain aspect ratio for square items */
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.zoom {
+    padding: 50px;
+    /* background-color: green; */
+    transition: transform .2s;
+    /* Animation */
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+}
+
+.zoom:hover {
+    transform: scale(1.2);
+    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+}
